@@ -6,7 +6,12 @@ public class MathEquation {
     private char opCode;
     private double result;
 
-    public MathEquation() {}
+
+    private static int numberOfCalculations;
+    private static double sumOfResults;
+
+
+    public MathEquation() {} //default constructor
 
     public MathEquation(char opCode) {
         this.opCode = opCode;
@@ -29,6 +34,32 @@ public class MathEquation {
                 result = 0.0d;
             }
         }
+        numberOfCalculations++;
+        sumOfResults += result;
+        }
+
+        public void execute(double leftVal, double rightVal) {
+            this.leftVal = leftVal;
+            this.rightVal = rightVal;
+            execute();
+        }
+
+        public void execute(int leftVal, int rightVal) {
+            this.leftVal = leftVal;
+            this.rightVal = rightVal;
+            execute();
+
+            result = (int) result;
+        }
+
+        public static double getAverageResult() {
+            return sumOfResults / numberOfCalculations;
+        }
+        public double getLeftVal() {
+            return this.leftVal;
+        }
+        public double getRightVal() {
+            return this.rightVal;
         }
         public double setLeftVal(double leftVal) {
             this.leftVal = leftVal;

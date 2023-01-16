@@ -15,6 +15,22 @@ public class Main {
                 equation.execute();
                 System.out.println("result = " + equation.getResult());
             }
+            System.out.println("Average result = " + MathEquation.getAverageResult());
+
+            System.out.println();
+            System.out.println("Using execute overloads");
+            System.out.println();
+
+            MathEquation equationOverload = new MathEquation('d');
+            double leftDouble = 9.0;
+            double rightDouble = 4.0;
+            equationOverload.execute(leftDouble, rightDouble);
+            System.out.println("Overloaded result with doubles: " + equationOverload.getResult());
+
+            int leftInt = 9;
+            int rightInt = 4;
+            equationOverload.execute(leftInt, rightInt);
+            System.out.println("Overloaded result with ints: " + equationOverload.getResult());
         }
 
 
